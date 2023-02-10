@@ -1,0 +1,195 @@
+/*
+Theme Name:   	0
+Author:       	Web Technology c.c.
+Author URI:     0
+Description:  	0
+Version:      	1.0.0
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  	0
+*/
+/*
+ * Add your own custom css below this text.
+ */
+
+.hidden {display:none;}
+
+#ajax-contact-form .form-control::placeholder {
+    color:#FFF;
+}
+
+
+
+
+.tagcloud{display: inline-block; padding: 0; margin: 0; list-style: none;font-size: 14px; }
+.tagcloud a{display: inline-block; margin: 0 5px 10px 0; text-decoration: none; color: #898989; border: 1px solid #343434; padding: 6px 15px;
+    transition: all 0.3s ease-out;font-size:14px !important;
+}
+.tagcloud a:hover{background: #fff; border-color: #fff; color: #000;}
+
+
+
+.comment-reply-link{display: inline-block; text-decoration: none; color: #fff; font-weight: 700; font-family: 'Roboto', sans-serif; font-size: 14px; line-height: 20px; padding: 0; text-transform: uppercase; position: relative;
+    transition: all 0.3s ease-out;
+}
+.comment-reply-link:hover{color: #feb06a;}
+
+.leave-reply {margin-top:8px;}
+
+.rpl:hover > .comment-reply-link {color:#feb06a;}
+.rpl i { transition: all 0.3s ease-out;}
+.rpl:hover > i {color:#feb06a;}
+
+
+
+
+.select2-dropdown {margin-top:30px;}
+
+
+label {
+    max-width:100%;
+}
+
+
+
+.no-border {border:0 !important;}
+
+
+div.wpcf7 .ajax-loader {
+    position: absolute;
+    top: 160px;
+}
+
+.white-link {
+    text-decoration: none;
+    color:#FFF;
+}
+
+.ul3 {position: relative; padding: 0; margin: 0 0 0; list-style: none; font-size: 13px; text-transform: uppercase;}
+.ul3 li{display: block; padding-bottom: 0; margin-bottom:10px; position: relative}
+.ul3 li a{position: relative; padding-right: 40px; padding-left: 40px; display: block; color: #999999; text-decoration: none;}
+.ul3 li a:before{content: ''; display: block; width: 17px; height: 1px; background: #999999; position: absolute; left: 0; top: 10px;}
+.ul3 li a:hover{color: #fdaf6a;}
+.ul3 li span{cursor:pointer; position: absolute; top:0; right: 0; color: #555555;}
+.ul3 li:hover > span{color: #fff;}
+
+.ul3 li.is-active a {color:#fdaf6a;}
+
+
+ul li.cat-item{display: block; border-bottom: 1px solid #343434;list-style: none; padding:0;}
+ul li.cat-item a{display: block; color: #a1a1a1; font-size: 14px; font-weight: bold; position: relative; text-decoration: none; padding: 15px 0 15px 30px;
+    transition: all 0.3s ease-out;
+}
+ul li.cat-item a:hover{color: #fd6332;}
+ul li.cat-item a:before{content: "\f15c"; display: block; font-family: 'FontAwesome'; color: #fd6332; position: absolute; left: 0; top: 15px;}
+
+
+ul li.cat-item.current-cat a {color:#fd6332;}
+
+.input-text{
+    padding: 17px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    outline: none;
+    width:100%;
+    color: #999999;
+    background: #202020;
+    border: 1px solid #343434;
+    border-radius: 0;
+}
+
+
+
+.post-full-story table th {
+    border:1px solid #606060;
+    padding:10px 10px;
+}
+.post-full-story table tr {
+    border:1px solid #606060;
+    padding:10px 10px;
+}
+
+.post-full-story table td {
+    border:1px solid #606060;
+    padding:10px 10px;
+}
+
+label.screen-reader-text {
+    display:none;
+}
+
+h2{ word-wrap: break-word;}
+h2 a{word-wrap: break-word;}
+
+.sticky {border-top:2px solid #0c9ec3;}
+
+.alignleft {float:left; padding-right:5px;padding-bottom:5px;}
+
+
+#pwbox-1 { width: 100%; height: auto; font-size: 14px; line-height: 20px; color:#a3a2a2; background: #fff; border: none; margin: 0; padding: 7px 50px 7px 10px; border-radius:1px; -moz-border-radius:1px; -webkit-border-radius:1px; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+    transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
+}
+#pwbox-1:focus {color: #fff; background-color: #0c9ec3;  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; outline: none;}
+
+
+.post-password-form input[type="text"]{padding: 8px 12px; width:100%; font-size: 14px; line-height: 20px; color: #333333; box-sizing : border-box; background: #fff; ; border: 1px solid #ebebeb;border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px;}
+.post-password-form input[type="text"]:focus{border-color: #333333; background: #fff;   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(246, 99, 1, 0); box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(246, 99, 1, 0); color: #000;}
+
+.post-password-form input[type="submit"] {
+    text-align: center !important;
+    color: #fff;
+    background-color: #4a4a4a;
+    font-size: 14px !important;
+    border-radius:3px !important;
+    font-family: 'Montserrat',sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin-right: 7px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease-out !important;
+    padding:4px 15px;
+    border:0;
+    cursor:pointer;
+}
+.post-password-form input[type="submit"]:hover {
+    background-color: #ee9c43;
+    color:#FFF;
+}
+
+.float-right-marg {
+    float:right;
+}
+
+.container:after{clear:both;}
+
+img {max-width:100%;height:auto;}
+
+.top50 {margin-top:50px;}
+.sidebar-block{margin-bottom: 50px;}
+.sidebar-title{font-size: 16px; color: #fff; font-weight: 700; text-transform: uppercase; padding: 0 0 30px;}
+
+.sidebar-block-blog  li{display: block; padding-bottom: 10px;}
+.sidebar-block-blog  li a{display: block; font-size: 14px; color: #888888; text-decoration: none;}
+.sidebar-block-blog  li a:hover{color: #ee9c43;}
+
+.sidebar-block-blog ul {margin-left:0;padding-left:0;}
+
+.sidebar-block-blog ul li span.post-date {font-size:12px;}
+
+.width140 {width:140px;}
+
+.pointer {cursor:pointer;}
+.left15 {margin-left:15px;}
+
+
+
+/* ============================= main menu ====================== */
+
+
+.wp-caption { display:block; }
+.wp-caption-text {color:#606060;font-style: italic;}
+.gallery-caption {display: block;}
+.bypostauthor {font-weight:bold;}
+.alignright {float:right;}
+.aligncenter {text-align:center; margin:0 auto;}
+
