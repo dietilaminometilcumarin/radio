@@ -537,7 +537,7 @@
                                 <p></p>
                             </div>
                             <div class="text-left">
-                                <button id="submit" type="submit"  class="wpcf7-form-control wpcf7-submit btn3 g-recaptcha" 
+                                <button id="sendButton" type="submit"  class="wpcf7-form-control wpcf7-submit btn3 g-recaptcha" 
 								data-sitekey="6Le0CI8kAAAAAF7SN_KxT_suiFPqDlWSdBKPPXDP" data-callback="onSubmit" disabled>send message   <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                             <div class="wpcf7-response-output" role="alert" aria-hidden="true"></div>
@@ -554,11 +554,11 @@
 			  console.log(form.checkValidity());
 			  if (form.checkValidity()) {
 				formSubmit.removeAttribute('disabled');
-				alert('');
+				//alert('');
 				}
 			}		
 			const form = document.getElementById('contactForm');
-			const formSubmit = document.getElementById('submit');
+			const formSubmit = document.getElementById('sendButton');
 			form.addEventListener('change', changeFormHandler);
 
 		</script>			
