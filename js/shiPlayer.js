@@ -4,36 +4,7 @@ function getImage(t){t=prepareArtistName(t);
 var e="http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+(t=encodeURI(t))+"&api_key="+settings.lastFMkey+"&format=json";$.getJSON(e,(function(e)
 {e.error?(console.log(e.message),console.log("The above error is for "+encodeURI(t))):e.artist.image[e.artist.image.length-1]["#text"].length>0?image=e.artist.image[e.artist.image.length-1]["#text"]:console.log("No image is associated with '"+decodeURI(t)+"' on Last.FM!"),$(".blur",thisObj).css("background-image","url("+image+")")})).error((function(){console.log("#getImage(), Error in loading artist background image for "+decodeURI(t))}))}function getTag(){return $(thisObj).attr("data-tag")}
 function updateSH(t,e){
-	setInterval
-	(
-		(
-			function() 
-			{
-				$.getJSON(t,
-							(
-								function(t) 
-								{
-									if(t.songtitle!=getTag())
-									{
-										updateTag(t.songtitle);
-										var i=splitter(t.songtitle,"artist"),s=splitter(t.songtitle,"title");
-										updateArtist(i),updateTitle(s),getImage(i),updateHistory(e),getNextSong(t),updateServerInfoSH(t)
-									}
-								}
-							)
-					)
-					.error(
-							(
-								function()
-								{
-									console.log("Error, in loading ShoutCast "+t)
-								}
-							)
-						)
-			}
-		)
-	,10000
-	)
+
 					}
 				function updateHistory(t){$(".panel2 ul li",thisObj).remove(),$.getJSON(t,(
 				function(t) {
