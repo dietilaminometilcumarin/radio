@@ -303,7 +303,7 @@ input[type='checkbox'] {
   font-size: 150%;
   font-weight: 900;
   line-height: 1;
-  max-width: 100%;
+  max-width: 50%;
   white-space: nowrap;
   -webkit-text-stroke: 1px rgb(0 0 0 / 20%);
   -webkit-user-select: none;
