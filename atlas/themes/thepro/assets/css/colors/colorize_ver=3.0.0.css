@@ -1,0 +1,414 @@
+/*!
+  * Theme: ThePRO
+  * Description: Personal Portfolio Wordpress Theme
+  * Author: ThemeREC
+  * Author URI:	https://www.templatemonster.com/authors/themerec/
+  * License: TemplateMonster Website Templates Licenses: https://www.templatemonster.com/licenses
+  */
+:root {
+  --theme-color: #009e66;
+}
+
+blockquote {
+  border-color: var(--theme-color);
+}
+::marker {
+  color: var(--theme-color);  
+}
+
+/* CUSOR SELECTION */
+::-moz-selection {
+  background-color: var(--theme-color);
+  color: #ffffff;
+}
+::selection {
+  background-color: var(--theme-color);
+  color: #ffffff;
+}
+
+/* BUTTON */
+.trc-btn-primary {
+  background-color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+}
+
+/* LINK */
+a:not(.trc-btn-primary):hover {
+  color: var(--theme-color);
+}
+a:not(.trc-btn-primary):focus,
+a:not(.trc-btn-primary):hover {
+  filter: brightness(1.2);
+}
+
+/* 
+  =============================
+    SOCIAL MEDIA & SHARE POST
+  =============================
+*/
+.social-icons i.icon:hover,
+.share-post i.icon:hover {
+  color: var(--theme-color);
+}
+
+/* 
+  =====================
+    UNDERLINE HEADING
+  =====================
+*/
+.section-heading.page-heading > .animated-bar {
+  background-color: var(--theme-color) !important;
+}
+
+/* 
+  ============
+    SERVICES
+  ============
+*/
+.services-section .single-service:hover {
+  border-bottom-color: var(--theme-color);
+}
+.services-section .single-service .service-icon {
+  color: var(--theme-color);
+}
+.testimonials-section .single-review .review-icon {
+  color: var(--theme-color);
+}
+
+/* 
+  ===========
+    PRICING
+  ===========
+*/
+.pricing-section .single-plan .plan-icon {
+  color: var(--theme-color);
+}
+
+/* 
+  ==========
+    RESUME
+  ==========
+*/
+.resume-section .resume-item {
+  border-color: var(--theme-color);
+}
+.resume-section .resume-item .item-arrow:before {
+  background-color: var(--theme-color);
+}
+.resume-section .resume-item .item-arrow:after {
+  border-left-color: var(--theme-color);
+}
+/* 
+  ======================
+    Skills Progress Bar
+  ======================
+*/
+.skills-section .single-skill .skill-progress .progress-bar {
+  background-color: var(--theme-color);
+}
+
+/* 
+  =============
+    PORTFOLIO
+  =============
+*/
+.portfolio-section .filter-control > li.tab-active,
+.portfolio-section .filter-control > li:hover {
+  color: var(--theme-color);
+  filter: brightness(1.2);
+}
+.portfolio-section .filter-control > li.tab-active:before,
+.portfolio-section .filter-control > li:hover:before {
+  background-color: var(--theme-color);
+  filter: brightness(1.2);
+}
+.portfolio-section .portfolio-grid .portfolio-wrapper:hover .item-content .icon {
+  color: var(--theme-color);
+}
+.portfolio-section .portfolio-grid .portfolio-wrapper .item-content .quick-view {
+  color: var(--theme-color);
+}
+
+/* 
+  ========
+    BLOG
+  ========
+*/
+.blog-section .post-item .post-date {
+  background-color: var(--theme-color);
+}
+
+/* Post Tags */
+.post-tags a {
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color) !important;
+}
+.post-tags a:hover {
+  background-color: var(--theme-color);
+  color: #ffffff !important;
+  filter: none;
+}
+
+/* 
+  ==============
+    PAGINATION
+  ==============
+*/
+.pagination ul li a:hover,
+.pagination ul li span:hover {
+	background-color: var(--theme-color);
+  color: #ffffff;
+  filter: none;
+}
+
+.pagination ul li .current {
+	background-color: var(--theme-color);
+  color: #ffffff;
+}
+
+/* 
+  ==========
+    INPUT
+  ==========
+*/
+select:focus,
+textarea:focus,
+input:focus,
+.input-text:focus {
+  border-bottom: 1px solid var(--theme-color) !important;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--theme-color);
+}
+
+/* 
+  =========
+    TEAM
+  =========
+*/
+.team-section .member-info {
+  border-color: var(--theme-color);
+}
+.team-section .member-socialmedia .nav .nav-link {
+  color: var(--theme-color);
+}
+
+/* 
+  ===================
+    POST PAGINATION
+  ===================
+*/
+.post-navigation .prev-post a span,
+.post-navigation .next-post a span {
+  color: var(--theme-color);
+}
+
+/* 
+  ===============
+    COMMENT FORM
+  ===============
+*/
+.post-comments a {
+  color: var(--theme-color) !important;
+}
+
+
+/* 
+  ===============
+    WooCommerce
+  ===============
+*/
+
+/* 
+  My Account Dashboard
+  ====================
+*/
+.woocommerce .woocommerce-MyAccount-navigation ul li.is-active a {
+  color: var(--theme-color);
+}
+.woocommerce .woocommerce-MyAccount-content a {
+  color: var(--theme-color);
+}
+
+/* Select 2 Box (.select2) */
+.select2-container--default .select2-results__option[aria-selected=true], 
+.select2-container--default .select2-results__option[data-selected=true] {
+     color: var(--theme-color);
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected], 
+.select2-container--default .select2-results__option--highlighted[data-selected] {
+     background-color: var(--theme-color);
+}
+
+/* Buttons */
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button {
+     background-color: var(--theme-color);
+     border-color: var(--theme-color);
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:hover {
+     background-color: var(--theme-color);
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button:disabled[disabled]:hover {
+     background-color: var(--theme-color);
+     color: #ffffff;
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt {
+     background-color: var(--theme-color);
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover {
+     background-color: var(--theme-color);
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt.disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:disabled[disabled],
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt.disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:disabled[disabled],
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt.disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:disabled[disabled],
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:disabled[disabled]:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt.disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt.disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:disabled,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:disabled:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:disabled[disabled],
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt.disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:disabled[disabled],
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt.disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:disabled[disabled],
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt.disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:disabled[disabled],
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:disabled[disabled]:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt.disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt.disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:disabled:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:disabled[disabled],
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:disabled[disabled]:hover {
+     background-color: var(--theme-color);
+}
+
+/* 
+  Product Catalog
+  ================
+*/
+
+/* Pagination */
+.woocommerce nav.woocommerce-pagination ul li a:focus,
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li span.current {
+     background-color: var(--theme-color);
+}
+
+/* 
+     Single Product
+     ===============
+*/
+/* Product Meta */
+.woocommerce div.product div.summary .product_meta>span {
+  color: var(--theme-color);
+}
+
+/* Description Tabs */
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+  color: var(--theme-color);
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+  color: var(--theme-color);
+  border-bottom: 1px solid var(--theme-color);
+}
+
+/* 
+     WooCommerce Forms
+     =================
+*/
+.woocommerce form a {
+  color: var(--theme-color) !important;
+}
+
+/* 
+     Shopping Cart
+     =============
+*/
+.shopping-cart .shopping-cart-link .shopping-cart-counter {
+  background-color: var(--theme-color);
+}
+.shopping-cart .shopping-cart-content a.button-outline {
+  color: var(--theme-color);
+}
+.shopping-cart .shopping-cart-content a.button-outline:hover {
+  background-color: var(--theme-color);
+}
