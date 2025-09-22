@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Internet Radio — Black Star</title>
+  <style>
+    :root {
+      --bg: #2b2523;
+      --panel: #231b1a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --accent: #ff8a2b;
+      --accent-2: #ff3b1f;
+      --muted: rgba(255, 255, 255, 0.18);
+      --radius: 18px;
+      font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: #bfbfc0;
+      /* background like in your screenshot */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* phone-like panel */
+    .app {
+      width: 360px;
+      max-width: 95vw;
+      height: 680px;
+      background: linear-gradient(180deg, #231a19 0%, #2f2220 60%);
+      border-radius: 10px;
+      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      padding: 14px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      border: 6px solid rgba(0, 0, 0, 0.6);
+    }
+
+    /* top bar */
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff, #ddd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #222;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.6px;
+    }
+
+    .menu-btn {
+      width: 40px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ff9b50, #ff6a20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(255, 130, 50, 0.18);
+      cursor: pointer;
+    }
+
+    /* center area */
+    .center {
+      padding: 18px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .station-name {
+      font-size: 18px;
+      letter-spacing: 6px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .panel {
+      width: 320px;
+      height: 440px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.25));
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* vertical sliders */
+    .v-slider {
+      width: 34px;
+      height: 330px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .v-track {
+      width: 12px;
+      height: 260px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #111, #000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(0deg, #1f53ff, #ffea2b);
+      box-shadow: 0 0 10px rgba(255, 100, 40, 0.5);
+      transition: height 0.05s linear;
+    }
+
+    .v-knob {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #111;
+      border: 3px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .ctrls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* main knob / ring */
+    .knob-wrap {
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    svg.knob {
+      width: 220px;
+      height: 220px;
+      /*transform:rotate(-90deg);*/
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+      transform: rotate(0deg);
+      /* начало шкалы в 225° */
+    }
+
+    .knob-center {
+      position: absolute;
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.65));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: inset 0 6px 10px rgba(255, 255, 255, 0.02), 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .knob-value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .knob-label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.6px;
+      margin-top: 2px;
+    }
+
+    /* bottom buttons */
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      gap: 8px;
+    }
+
+    .play-btn {
+      width: 110px;
+      height: 44px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #0f0f10, #161314);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: inset 0 -4px 12px rgba(255, 255, 255, 0.02);
+      cursor: pointer;
+    }
+
+    .round-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #111, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.02);
+    }
+
+    /* playlist overlay */
+    .playlist {
+      position: absolute;
+      top: 64px;
+      right: 12px;
+      width: 220px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .playlist.show {
+      display: flex;
+    }
+
+    .station-item {
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+    }
+
+    .station-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .station-item.active {
+      outline: 2px solid rgba(255, 140, 40, 0.12);
+    }
+
+    /* subtle labels */
+    .small-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .copy-label {
+      font-size: 11px;
+      color: rgba(200, 200, 200, 0.6);
+      margin-top: 6px;
+    }
+
+    /* responsiveness */
+    @media (max-width:420px) {
+      .app {
+        height: 760px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <div class="top">
+      <div class="brand">
+        <div class="logo">♪</div>
+        <div class="title">internet radio</div>
+      </div>
+      <div class="menu-btn" id="menuBtn">☰</div>
+    </div>
+
+    <div class="center">
+      <div class="station-name">BLACK STAR</div>
+
+      <div class="panel">
+        <!-- left slider -->
+        <div class="v-slider">
+          <div class="v-track" id="leftTrack">
+            <div class="v-fill" id="leftFill" style="height:50%"></div>
+          </div>
+          <div class="v-knob small-label" id="leftLabel">L</div>
+          <div class="small-label">Left</div>
+        </div>
+
+        <!-- big knob -->
+        <div class="knob-wrap">
+          <svg class="knob" viewBox="0 0 220 220" id="knobSVG" aria-hidden>
+            <defs>
+              <linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="20" y1="110" x2="200" y2="110">
+                <stop offset="0%" stop-color="#ff0000" /> <!-- Всегда красный -->
+                <stop offset="100%" stop-color="#ffff00" /> <!-- Жёлтый только на конце -->
+              </linearGradient>
+            </defs>
+
+            <!-- Фоновый круг -->
+            <circle cx="110" cy="110" r="90" stroke="rgba(255,255,255,0.05)" stroke-width="12" fill="none" />
+
+            <!-- Активная дуга громкости -->
+            <path id="arc" stroke="url(#g1)" stroke-width="12" fill="none" stroke-linecap="round" />
+
+            <!-- Внутренний круг -->
+            <circle cx="110" cy="110" r="70" stroke="rgba(255,255,255,0.02)" stroke-width="6" fill="none" />
+          </svg>
+
+          <div class="knob-center" id="knobCenter">
+            <div class="knob-value" id="volumeValue">100</div>
+            <div class="knob-label">VOLUME</div>
+          </div>
+        </div>
+
+        <!-- right slider -->
+        <div class="v-slider">
+          <div class="v-track" id="rightTrack">
+            <div class="v-fill" id="rightFill" style="height:50%"></div>
+          </div>
+          <div class="v-knob small-label" id="rightLabel">R</div>
+          <div class="small-label">Right</div>
+        </div>
+      </div>
+
+      <!-- bottom controls -->
+      <div class="bottom" style="width:320px;">
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="round-btn" id="copyBtn">⎘</div>
+          <div style="text-align:center;">
+            <div class="copy-label"></div>
+          </div>
+        </div>
+
+        <div class="play-btn" id="playBtn">PLAY</div>
+
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="round-btn" id="radioBtn">◉</div>
+          <div style="text-align:center;">
+            <div class="copy-label"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- playlist overlay -->
+    <div class="playlist" id="playlist">
+      <div class="small-label">Станции</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/stream">Auto (main)</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/ua.mp3">Eastern Hemisphere (UA)</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/us.mp3">Western Hemisphere (US)</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/stream">Default</div>
+    </div>
+
+    <!-- hidden audio element -->
+    <audio id="player" crossorigin="anonymous"></audio>
+  </div>
+
+  <script>
+    (() => {
+      const defaultUrl = "https://radio.youlink.uk/stream";
+      const audioEl = document.getElementById('player');
+      let currentStream = defaultUrl;
+      audioEl.src = currentStream;
+      audioEl.preload = "auto";
+
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      let ctx = null;
+      let source = null;
+      let masterGain, splitter, leftGain, rightGain, merger, analyser;
+      let leftAnalyser, rightAnalyser;
+
+      function ensureAudioContext() {
+        if (!ctx) {
+          ctx = new AudioContextClass();
+          source = ctx.createMediaElementSource(audioEl);
+          masterGain = ctx.createGain();
+          splitter = ctx.createChannelSplitter(2);
+          leftGain = ctx.createGain();
+          rightGain = ctx.createGain();
+          merger = ctx.createChannelMerger(2);
+          analyser = ctx.createAnalyser();
+          leftAnalyser = ctx.createAnalyser();
+          rightAnalyser = ctx.createAnalyser();
+
+          leftAnalyser.fftSize = 256;
+          rightAnalyser.fftSize = 256;
+
+          source.connect(splitter);
+          splitter.connect(leftGain, 0);
+          splitter.connect(rightGain, 1);
+          leftGain.connect(merger, 0, 0);
+          rightGain.connect(merger, 0, 1);
+          merger.connect(masterGain);
+
+          masterGain.connect(leftAnalyser);
+          masterGain.connect(rightAnalyser);
+          masterGain.connect(analyser);
+
+          analyser.connect(ctx.destination);
+
+          masterGain.gain.value = 1.0;
+          leftGain.gain.value = 1.0;
+          rightGain.gain.value = 1.0;
+        }
+      }
+
+      const playBtn = document.getElementById('playBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const menuBtn = document.getElementById('menuBtn');
+      const playlist = document.getElementById('playlist');
+      const stationItems = playlist.querySelectorAll('.station-item');
+      const radioBtn = document.getElementById('radioBtn');
+      const knobCenter = document.getElementById('knobCenter');
+      const volumeValue = document.getElementById('volumeValue');
+      const arc = document.getElementById('arc');
+      const leftFill = document.getElementById('leftFill');
+      const rightFill = document.getElementById('rightFill');
+      const knobSVG = document.getElementById('knobSVG');
+
+      let volume = 1.0;
+      let isPlaying = false;
+
+      // --- Новый код для рисования дуги по пути SVG ---
+
+      function polarToCartesian(cx, cy, r, angleInDegrees) {
+        const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+        return {
+          x: cx + r * Math.cos(angleInRadians),
+          y: cy + r * Math.sin(angleInRadians)
+        };
+      }
+
+      function describeArc(cx, cy, r, startAngle, arcAngle) {
+        const endAngle = (startAngle + arcAngle) % 360;
+        const start = polarToCartesian(cx, cy, r, startAngle);
+        const end = polarToCartesian(cx, cy, r, endAngle);
+        const largeArcFlag = arcAngle > 180 ? 1 : 0;
+        const sweepFlag = 1; // по часовой
+        return [
+          "M", start.x, start.y,
+          "A", r, r, 0, largeArcFlag, sweepFlag, end.x, end.y
+        ].join(" ");
+      }
+
+      function updateArc(norm) {
+        norm = Math.max(0, Math.min(1, norm));
+        const startAngle = 210; // 7 часов
+        const arcLength = 300;  // длина дуги (300° вместо 270° - можно подстроить)
+        const levelAngle = arcLength * norm;
+        const d = describeArc(110, 110, 90, startAngle, levelAngle);
+        arc.setAttribute("d", d);
+        volumeValue.textContent = Math.round(norm * 100);
+      }
+
+      // --- Конец нового кода для дуги ---
+
+      function updateVolumeUI() {
+        updateArc(volume);
+      }
+
+      function applyVolume() {
+        if (masterGain) masterGain.gain.setTargetAtTime(volume, ctx.currentTime, 0.01);
+      }
+
+      // Drag для изменения громкости с обновлением дуги
+      let dragging = false;
+      let startY = 0;
+      let startVol = 1;
+
+      knobCenter.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        ensureAudioContext();
+        dragging = true;
+        startY = e.clientY;
+        startVol = volume;
+        knobCenter.setPointerCapture(e.pointerId);
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const dy = startY - e.clientY;
+        const delta = dy / 180;
+        volume = Math.max(0, Math.min(1, startVol + delta));
+        updateVolumeUI();
+        applyVolume();
+      });
+
+      window.addEventListener('pointerup', () => {
+        if (dragging) dragging = false;
+      });
+
+      knobSVG.addEventListener('click', (ev) => {
+        const rect = knobSVG.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const x = ev.clientX - cx;
+        const y = ev.clientY - cy;
+        let ang = Math.atan2(y, x) + Math.PI / 2;
+        if (ang < 0) ang += 2 * Math.PI;
+        const norm = ang / (2 * Math.PI);
+        volume = Math.max(0, Math.min(1, 1 - norm));
+        ensureAudioContext();
+        updateVolumeUI();
+        applyVolume();
+      });
+
+      playBtn.addEventListener('click', async () => {
+        try {
+          ensureAudioContext();
+          if (!isPlaying) {
+            if (ctx && ctx.state === 'suspended') await ctx.resume();
+            await audioEl.play();
+            isPlaying = true;
+            playBtn.textContent = 'PAUSE';
+            playBtn.style.background = 'linear-gradient(180deg,#ff6a20,#ff8a2b)';
+          } else {
+            audioEl.pause();
+            isPlaying = false;
+            playBtn.textContent = 'PLAY';
+            playBtn.style.background = 'linear-gradient(180deg,#0f0f10,#161314)';
+          }
+        } catch (err) {
+          console.error("Play failed:", err);
+          alert("Не удалось запустить поток. Проверьте URL или CORS-политику потока.");
+        }
+      });
+
+      menuBtn.addEventListener('click', () => {
+        playlist.classList.toggle('show');
+      });
+      radioBtn.addEventListener('click', () => {
+        playlist.classList.toggle('show');
+      });
+
+      stationItems.forEach(item => {
+        item.addEventListener('click', async () => {
+          stationItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          const url = item.getAttribute('data-url');
+          currentStream = url;
+          isPlaying = false;
+          playBtn.textContent = 'PLAY';
+          playBtn.style.background = 'linear-gradient(180deg,#0f0f10,#161314)';
+          audioEl.pause();
+          audioEl.src = currentStream;
+          audioEl.load();
+          try {
+            ensureAudioContext();
+            await audioEl.play();
+            isPlaying = true;
+            playBtn.textContent = 'PAUSE';
+            playBtn.style.background = 'linear-gradient(180deg,#ff6a20,#ff8a2b)';
+          } catch (e) {
+            console.warn("Autoplay blocked or failed:", e);
+          }
+          playlist.classList.remove('show');
+        });
+      });
+
+      if (stationItems.length) stationItems[0].classList.add('active');
+
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(currentStream);
+          copyBtn.textContent = '✓';
+          setTimeout(() => copyBtn.textContent = '⎘', 1000);
+        } catch (e) {
+          alert("Не удалось скопировать адрес: " + e);
+        }
+      });
+
+      updateVolumeUI();
+
+      // 🎚️ Индикаторы сигнала (оставляем как есть)
+      let leftLevelSmooth = 0;
+      let rightLevelSmooth = 0;
+
+      function updateSignalLevels() {
+        if (!leftAnalyser || !rightAnalyser) {
+          requestAnimationFrame(updateSignalLevels);
+          return;
+        }
+
+        const lData = new Uint8Array(leftAnalyser.frequencyBinCount);
+        const rData = new Uint8Array(rightAnalyser.frequencyBinCount);
+        leftAnalyser.getByteTimeDomainData(lData);
+        rightAnalyser.getByteTimeDomainData(rData);
+
+        const getPeak = (arr) => {
+          let peak = 0;
+          for (let i = 0; i < arr.length; i++) {
+            const val = Math.abs(arr[i] - 128);
+            if (val > peak) peak = val;
+          }
+          return Math.min(1, (peak / 128) * 2);
+        };
+
+        const leftPeak = getPeak(lData);
+        const rightPeak = getPeak(rData);
+
+        leftLevelSmooth += (leftPeak - leftLevelSmooth) * 0.1;
+        rightLevelSmooth += (rightPeak - rightLevelSmooth) * 0.1;
+
+        leftFill.style.height = `${(leftLevelSmooth * 100).toFixed(1)}%`;
+        rightFill.style.height = `${(rightLevelSmooth * 100).toFixed(1)}%`;
+
+        requestAnimationFrame(updateSignalLevels);
+      }
+
+      requestAnimationFrame(updateSignalLevels);
+
+      leftFill.style.height = 0;
+      rightFill.style.height = 0;
+
+
+    })();
+  </script>
+
+</body>
+
+</html>
