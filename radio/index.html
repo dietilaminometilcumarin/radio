@@ -46,6 +46,7 @@
     /* Фиксированное приложение под мобильный экран */
     .app {
       width: 100%;
+      /* height:100%; */
       /* min-width: 400px; */
       /* max-width: 95vw; */
       /* height: 680px; */
@@ -133,7 +134,7 @@
 
     /* Панель с регуляторами */
     .panel {
-      width: 320px;
+      width: 340px;
       height: 440px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.25));
       border-radius: 16px;
@@ -151,13 +152,13 @@
 
     /* Вертикальные слайдеры */
     .v-slider {
-      width: 34px;
-      height: 330px;
+      width: 24px;
+      height: 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 10px;
       box-sizing: border-box;
     }
 
@@ -198,9 +199,9 @@
     /* Главный регулятор — уменьшенный */
 
     .knob-wrap {
-      width: 140px;
+      width: 220px;
       /* было 220px */
-      height: 140px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -209,9 +210,9 @@
     }
 
     svg.knob {
-      width: 140px;
+      width: 220px;
       /* было 220px */
-      height: 140px;
+      height: 220px;
       filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
       transform: rotate(0deg);
       box-sizing: border-box;
@@ -219,9 +220,9 @@
 
     .knob-center {
       position: absolute;
-      width: 80px;
+      width: 200px;
       /* было 126px */
-      height: 80px;
+      height: 200px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.65));
       display: flex;
@@ -340,24 +341,24 @@
 
     /* responsiveness */
     @media (max-height: 700px) {
-      .knob-wrap {
+      /* .knob-wrap {
         transform: scale(0.85);
-      }
+      } */
 
-      .panel {
+      /* .panel {
         flex-direction: column;
         align-items: center;
         height: auto;
-      }
+      } */
 
-      .v-slider {
+      /* .v-slider {
         height: 180px;
       }
 
       .bottom {
         flex-wrap: wrap;
         justify-content: center;
-      }
+      } */
 
 
     }
