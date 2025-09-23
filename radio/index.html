@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+
+
   <title>Internet Radio — Black Star</title>
   <style>
     :root {
@@ -22,29 +26,44 @@
       height: 100%;
       margin: 0;
       background: #bfbfc0;
-      /* background like in your screenshot */
+      /* молочный фон вокруг */
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 0px;
+      overflow-x: hidden;
+      box-sizing: border-box;
+
+
     }
 
-    /* phone-like panel */
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    /* Фиксированное приложение под мобильный экран */
     .app {
-      width: 360px;
-      max-width: 95vw;
-      height: 680px;
+      width: 100%;
+      /* min-width: 400px; */
+      /* max-width: 95vw; */
+      /* height: 680px; */
       background: linear-gradient(180deg, #231a19 0%, #2f2220 60%);
       border-radius: 10px;
       box-shadow: 0 8px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
       padding: 14px;
       color: white;
       position: relative;
-      overflow: hidden;
+      /* overflow: hidden; */
       border: 6px solid rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      /* box-sizing: border-box; */
+      /* background-color: #1f53ff; */
     }
 
-    /* top bar */
+    /* Верхняя панель */
     .top {
       display: flex;
       align-items: center;
@@ -74,7 +93,7 @@
 
     .title {
       font-weight: 800;
-      font-size: 28px;
+      font-size: 24px;
       letter-spacing: 0.6px;
     }
 
@@ -92,7 +111,7 @@
       cursor: pointer;
     }
 
-    /* center area */
+    /* Центр */
     .center {
       padding: 18px 8px;
       display: flex;
@@ -100,6 +119,8 @@
       justify-content: center;
       flex-direction: column;
       gap: 10px;
+      flex-grow: 1;
+      box-sizing: border-box;
     }
 
     .station-name {
@@ -110,6 +131,7 @@
       margin-bottom: 6px;
     }
 
+    /* Панель с регуляторами */
     .panel {
       width: 320px;
       height: 440px;
@@ -122,9 +144,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+
     }
 
-    /* vertical sliders */
+    /* Вертикальные слайдеры */
     .v-slider {
       width: 34px;
       height: 330px;
@@ -133,6 +158,7 @@
       align-items: center;
       justify-content: center;
       gap: 14px;
+      box-sizing: border-box;
     }
 
     .v-track {
@@ -168,36 +194,34 @@
       margin-top: 8px;
     }
 
-    .ctrls {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
+    /* Главный регулятор */
+    /* Главный регулятор — уменьшенный */
 
-    /* main knob / ring */
     .knob-wrap {
-      width: 220px;
-      height: 220px;
+      width: 140px;
+      /* было 220px */
+      height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      box-sizing: border-box;
     }
 
     svg.knob {
-      width: 220px;
-      height: 220px;
-      /*transform:rotate(-90deg);*/
+      width: 140px;
+      /* было 220px */
+      height: 140px;
       filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
       transform: rotate(0deg);
-      /* начало шкалы в 225° */
+      box-sizing: border-box;
     }
 
     .knob-center {
       position: absolute;
-      width: 126px;
-      height: 126px;
+      width: 80px;
+      /* было 126px */
+      height: 80px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.65));
       display: flex;
@@ -205,27 +229,33 @@
       justify-content: center;
       flex-direction: column;
       box-shadow: inset 0 6px 10px rgba(255, 255, 255, 0.02), 0 6px 20px rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
     }
 
     .knob-value {
-      font-size: 32px;
+      font-size: 20px;
+      /* было 32px */
       font-weight: 700;
     }
 
     .knob-label {
-      font-size: 10px;
+      font-size: 8px;
+      /* было 10px */
       color: var(--muted);
       letter-spacing: 0.6px;
       margin-top: 2px;
     }
 
-    /* bottom buttons */
+
+    /* Нижняя панель с кнопками */
     .bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 12px;
       gap: 8px;
+      width: 320px;
+      box-sizing: border-box;
     }
 
     .play-btn {
@@ -240,6 +270,7 @@
       letter-spacing: 1px;
       box-shadow: inset 0 -4px 12px rgba(255, 255, 255, 0.02);
       cursor: pointer;
+      box-sizing: border-box;
     }
 
     .round-btn {
@@ -254,9 +285,10 @@
       color: var(--muted);
       cursor: pointer;
       border: 2px solid rgba(255, 255, 255, 0.02);
+      box-sizing: border-box;
     }
 
-    /* playlist overlay */
+    /* Плейлист */
     .playlist {
       position: absolute;
       top: 64px;
@@ -269,6 +301,7 @@
       flex-direction: column;
       gap: 8px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
     }
 
     .playlist.show {
@@ -290,7 +323,7 @@
       outline: 2px solid rgba(255, 140, 40, 0.12);
     }
 
-    /* subtle labels */
+    /* Метки и подписи */
     .small-label {
       font-size: 11px;
       color: var(--muted);
@@ -304,11 +337,29 @@
       margin-top: 6px;
     }
 
+
     /* responsiveness */
-    @media (max-width:420px) {
-      .app {
-        height: 760px
+    @media (max-height: 700px) {
+      .knob-wrap {
+        transform: scale(0.85);
       }
+
+      .panel {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+
+      .v-slider {
+        height: 180px;
+      }
+
+      .bottom {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+
     }
   </style>
 </head>
@@ -396,9 +447,8 @@
     <div class="playlist" id="playlist">
       <div class="small-label">Станции</div>
       <div class="station-item" data-url="https://radio.youlink.uk/stream">Auto (main)</div>
-      <div class="station-item" data-url="https://radio.youlink.uk/ua.mp3">Eastern Hemisphere (UA)</div>
-      <div class="station-item" data-url="https://radio.youlink.uk/us.mp3">Western Hemisphere (US)</div>
-      <div class="station-item" data-url="https://radio.youlink.uk/stream">Default</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/ua.mp3">Eastern (RU)</div>
+      <div class="station-item" data-url="https://radio.youlink.uk/us.mp3">Western (US)</div>
     </div>
 
     <!-- hidden audio element -->
@@ -539,20 +589,64 @@
         if (dragging) dragging = false;
       });
 
+      // knobSVG.addEventListener('click', (ev) => {
+      //   const rect = knobSVG.getBoundingClientRect();
+      //   const cx = rect.left + rect.width / 2;
+      //   const cy = rect.top + rect.height / 2;
+      //   const x = ev.clientX - cx;
+      //   const y = ev.clientY - cy;
+      //   let ang = Math.atan2(y, x) + Math.PI / 2;
+      //   if (ang < 0) ang += 2 * Math.PI;
+      //   const norm = ang / (2 * Math.PI);
+      //   volume = Math.max(0, Math.min(1, 1 - norm));
+      //   ensureAudioContext();
+      //   updateVolumeUI();
+      //   applyVolume();
+      // });
+
       knobSVG.addEventListener('click', (ev) => {
         const rect = knobSVG.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
+
         const x = ev.clientX - cx;
         const y = ev.clientY - cy;
-        let ang = Math.atan2(y, x) + Math.PI / 2;
-        if (ang < 0) ang += 2 * Math.PI;
-        const norm = ang / (2 * Math.PI);
-        volume = Math.max(0, Math.min(1, 1 - norm));
+
+        // Угол в радианах (0 — вверх)
+        let angleRad = Math.atan2(y, x);
+        let angleDeg = angleRad * (180 / Math.PI);
+
+        // Перевод в шкалу от 0 до 360, где 0 — вверх, по часовой стрелке
+        angleDeg = (angleDeg + 450) % 360;
+
+        const startAngle = 210; // начало дуги
+        const arcLength = 300;  // длина дуги
+        const endAngle = (startAngle + arcLength) % 360;
+
+        let volumeNorm;
+
+        if (startAngle < endAngle) {
+          // Обычный случай: дуга не переходит через 0
+          if (angleDeg < startAngle || angleDeg > endAngle) return; // вне дуги
+          volumeNorm = (angleDeg - startAngle) / arcLength;
+        } else {
+          // Дуга переходит через 0 (как у нас: 210 -> 150)
+          if (angleDeg < startAngle && angleDeg > endAngle) return; // вне дуги
+
+          if (angleDeg >= startAngle) {
+            volumeNorm = (angleDeg - startAngle) / arcLength;
+          } else {
+            volumeNorm = (360 - startAngle + angleDeg) / arcLength;
+          }
+        }
+
+        volume = Math.max(0, Math.min(1, volumeNorm));
         ensureAudioContext();
         updateVolumeUI();
         applyVolume();
       });
+
+
 
       playBtn.addEventListener('click', async () => {
         try {
