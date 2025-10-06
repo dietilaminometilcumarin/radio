@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: black;
+        height: 100%;
+      }
+      #player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <script>
+      let tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      let firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      let player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          videoId: 'TVaxzIL-qzg', // Заменить на свой ID
+          playerVars: {
+            autoplay: 1,
+            controls: 0,
+            showinfo: 0,
+            modestbranding: 1,
+            fs: 0,
+            rel: 0,
+            disablekb: 1,
+            iv_load_policy: 3,
+            playsinline: 1
+          },
+          events: {
+            onReady: function(e) {
+              e.target.mute(); // Без звука по умолчанию (для autoplay)
+              e.target.playVideo();
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
