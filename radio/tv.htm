@@ -1,56 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background: black;
-        height: 100%;
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical 24/7 Stream</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #player {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vh;
+      height: 100vw;
+      max-height: 100vh;
+      max-width: 100vw;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      background: transparent;
+      pointer-events: auto; /* Блокирует взаимодействие с плеером */
+    }
+
+    #rotate-message {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-family: sans-serif;
+      height: 100vh;
+      padding: 2rem;
+      background: black;
+      z-index: 20;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+    }
+
+    @media (orientation: landscape) {
+      #rotate-message {
+        display: flex;
       }
-      #player {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+      #container {
+        display: none;
       }
-    </style>
-  </head>
-  <body>
+    }
+  </style>
+</head>
+<body>
+
+  <div id="rotate-message">
+    Пожалуйста, поверните экран в вертикальное положение для просмотра канала.
+  </div>
+
+  <div id="container">
     <div id="player"></div>
+    <div id="overlay"></div> <!-- Перекрытие -->
+  </div>
 
-    <script>
-      let tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      let firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  <script>
+    // YouTube IFrame API
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      let player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          videoId: 'TVaxzIL-qzg', // Заменить на свой ID
-          playerVars: {
-            autoplay: 1,
-            controls: 0,
-            showinfo: 0,
-            modestbranding: 1,
-            fs: 0,
-            rel: 0,
-            disablekb: 1,
-            iv_load_policy: 3,
-            playsinline: 1
-          },
-          events: {
-            onReady: function(e) {
-              //e.target.mute(); // Без звука по умолчанию (для autoplay)
-              e.target.playVideo();
-            }
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'TVaxzIL-qzg', // Твой видео ID
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          modestbranding: 1,
+          fs: 0,
+          rel: 0,
+          showinfo: 0,
+          disablekb: 1,
+          iv_load_policy: 3,
+          playsinline: 1
+        },
+        events: {
+          onReady: function(e) {
+            //e.target.mute();
+            e.target.playVideo();
           }
-        });
-      }
-    </script>
-  </body>
+        }
+      });
+    }
+  </script>
+
+</body>
 </html>
+
 
