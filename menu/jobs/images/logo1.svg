@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150">
+  <!-- Однотонный цвет можно менять здесь -->
+  <defs>
+    <style>
+      .text { fill: #2a62ff; font-family: Arial, sans-serif; font-weight: 700; }
+      .waves { stroke: #2a62ff; stroke-width: 4; fill: none; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <!-- Радиоволны -->
+  <g transform="translate(20,75)">
+    <path class="waves" d="M0 0 C40 -30, 80 -30, 120 0"></path>
+    <path class="waves" d="M0 0 C40 -50, 80 -50, 120 0" opacity="0.55"></path>
+    <path class="waves" d="M0 0 C40 -70, 80 -70, 120 0" opacity="0.3"></path>
+  </g>
+
+  <!-- Надпись -->
+  <text x="170" y="90" font-size="70" class="text">Radio Telecaster</text>
+</svg>
