@@ -160,7 +160,7 @@
     </div>
     <div class="footer-section">
         <div class="footer-container w-container">
-            <div class="social-icons-div"><a href="https://twitter.com/LindenLab" target="_blank" class="font-awesome social-icons"></a><a href="https://www.linkedin.com/company/linden-lab" target="_blank" class="font-awesome social-icons"></a></div>
+            <div class="social-icons-div"><a href="https://youlink.uk/telecaster" target="_blank" class="font-awesome social-icons"></a><a href="https://instagram.com/youlink.uk" target="_blank" class="font-awesome social-icons"></a></div>
             <div class="footer-links-div"><a href="#" class="footer-link">Terms of service</a><a href="#" class="footer-link">PRIVACY POLICY</a><a href="#" class="footer-link">DMCA Form</a><a href="#" class="footer-link">CONTENT GUIDELINES</a></div>
             <div class="copyright-div">
                 <div class="div-block-7">
@@ -229,71 +229,11 @@
     <script src="js/jquery-ui.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            //$('#application_form_details').hide();
-            //let params = new URLSearchParams(window.location.search)
-            //let gh_jid = params.get('gh_jid') || ''
-
-            // if (gh_jid != '') {
-            //     link = 'https://boards.greenhouse.io/embed/job_app?for=lindenlab&token=' + gh_jid + '&b=https%3A%2F%2Flindenlab.com%2Fcareers'
-
-
-            //     linkdownload = 'https://partnerportal.secondlife.com/proxy/joboffer/l/' + gh_jid
-
-            //     let isFull = jQuery(window).width() < 500
-
-
-            //     $.get(linkdownload, function(data) {
-            //         nodes = $.parseHTML(data)
-            //         $('#application_form_info').html(nodes)
-            //         $('#life_details').hide()
-            //         $('#application_form_details').css('opacity', '1')
-            //         $('#application_form_details').show()
-
-            //         let title = $('#application_form_info h1.app-title').text()
-            //         $("#application_form_dialog").attr("title", title)
-
-            //         let dialog = $("#application_form_dialog").dialog({
-            //             autoOpen: false,
-            //             height: (isFull) ? jQuery(window).height() - 100 : Math.max(jQuery(window).height() - 300, 600),
-            //             width: (isFull) ? '100%' : '80%',
-            //             modal: true,
-
-            //             open: function(event, ui) {
-            //                 var top = 10;
-            //                 var left = (isFull) ? 0 : Math.max(jQuery(window).width() / 2 - jQuery(this)[0].offsetWidth / 2, 0);
-            //                 jQuery(this).parent().css('top', top + "px");
-            //                 jQuery(this).parent().css('left', left + "px");
-            //                 jQuery(this).parent().css('position', 'fixed');
-            //                 //		  }
-            //                 $('.ui-dialog-content').css('overflow', 'hidden');
-            //                 $(".ui-widget-overlay").click(function() {
-            //                     $("#application_form_dialog").dialog("close");
-            //                 });
-
-            //                 $('#application_form_dialog').html(' <iframe id="grnhse_iframe" width="100%" frameborder="0" scrolling="yes" allow="geolocation"\n' +
-            //                     '         onload="undefined" title="Greenhouse Job Board"\n' +
-            //                     '         src="' + link + '#application_form"\n' +
-            //                     '         height="100%"></iframe>\n')
-            //             },
-            //             close: function() {
-            //                 //allFields.val( "" ).removeClass( "ui-state-error" );
-            //             }
-            //         });
-
-            //         $('#application_form_btn').on("click", function() {
-            //             dialog.dialog("open");
-            //         });
-
-            //     });
-
-            // } else {
-                //alert(1);
                 let url = "https://telecaster.youlink.uk/menu/jobs/jobs.htm"
                 $.get(url, function(data) {
                     nodes = $.parseHTML(data)
                     $('#application_form_lists').html(nodes);
                 });
-            //}
         });
     </script>
 </body>
