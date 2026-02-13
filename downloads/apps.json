@@ -1,13 +1,13 @@
 [
   {
-    "name": "MyApp",
+    "name": "FoxBuster",
     "version": "1.0",
     "remote_version_code": 1,
     "package_name": "com.alcoholsoft.foxbuster",
     "apk_url": "https://telecaster.detach.pp.ua/FoxBuster.apk"
   },
   {
-    "name": "TestApp",
+    "name": "FoxBuster",
     "version": "2.0",
     "remote_version_code": 1,
     "package_name": "com.alcoholsoft.foxbuster",
@@ -15,3 +15,4 @@
   }
 
 ]
+
