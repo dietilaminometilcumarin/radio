@@ -2,19 +2,20 @@
   {
     "name": "Fox Buster",
     "version": "1.0",
-    "remote_version_code": 1.0,
+    "remote_version_code": 1,
     "package_name": "com.alcoholsoft.foxbuster",
     "apk_url": "https://telecaster.detach.pp.ua/FoxBuster.apk"
   },
   {
     "name": "Fox Buster",
-    "version": "2.0",
-    "remote_version_code": 2.0,
+    "version": "5.0",
+    "remote_version_code": 5,
     "package_name": "com.alcoholsoft.foxbuster",
     "apk_url": "https://telecaster.detach.pp.ua/FoxBuster.apk"
   }
 
 ]
+
 
 
 
