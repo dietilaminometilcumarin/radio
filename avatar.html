@@ -12,17 +12,11 @@
 
     <script>
         var audio = document.getElementById('botAudio');
+        audio.muted = true; 
+        audio.play().then(() => {
+            setTimeout(() => { audio.muted = false; }, 1000);
+        });
 
-        // Пытаемся запустить воспроизведение программно
-        function startAudio() {
-            audio.play().catch(function(error) {
-                console.log("Autoplay blocked, waiting for interaction or retry...");
-                // Повторяем попытку через секунду, если заблокировано
-                setTimeout(startAudio, 1000);
-            });
-        }
-
-        window.onload = startAudio;
     </script>
 </body>
 </html>
