@@ -1,0 +1,7 @@
+<audio autoplay>
+    <source src="https://fm.digci.com/stream" type="audio/mpeg">
+</audio>
+<script>
+    // Костыль для автоплея, если вьювер блокирует его без взаимодействия
+    document.onclick = () => { document.querySelector('audio').play(); };
+</script>
