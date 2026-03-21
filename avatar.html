@@ -1,7 +1,29 @@
-<audio autoplay>
-    <source src="https://fm.digci.com/stream" type="audio/mpeg">
-</audio>
-<script>
-    // Костыль для автоплея, если вьювер блокирует его без взаимодействия
-    document.onclick = () => { document.querySelector('audio').play(); };
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Voice Stream</title>
+    <style>body { background: black; margin: 0; overflow: hidden; }</style>
+</head>
+<body>
+    <!-- Атрибут autoplay и preload заставляют браузер начать загрузку -->
+    <audio id="botAudio" autoplay preload="auto">
+        <source src="https://fm.digci.com/stream" type="audio/mpeg">
+    </audio>
+
+    <script>
+        var audio = document.getElementById('botAudio');
+
+        // Пытаемся запустить воспроизведение программно
+        function startAudio() {
+            audio.play().catch(function(error) {
+                console.log("Autoplay blocked, waiting for interaction or retry...");
+                // Повторяем попытку через секунду, если заблокировано
+                setTimeout(startAudio, 1000);
+            });
+        }
+
+        window.onload = startAudio;
+    </script>
+</body>
+</html>
+
