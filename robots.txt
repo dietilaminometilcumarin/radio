@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Clean-param: stream /
+
+Sitemap: https://digci.com
+Host: radio.digci.com
