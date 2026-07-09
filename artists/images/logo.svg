@@ -9,20 +9,15 @@
     </style>
   </defs>
 
-  <!-- Радиоволны -->
-  <g transform="translate(20,75)">
-    <path class="waves" d="M0 0 C40 -30, 80 -30, 120 0"></path>
-    <path class="waves" d="M0 0 C40 -50, 80 -50, 120 0" opacity="0.6"></path>
-    <path class="waves" d="M0 0 C40 -70, 80 -70, 120 0" opacity="0.35"></path>
-  </g>
-
-  <!-- Основная надпись -->
-  <text x="170" y="90" font-size="70" class="main">Radio Telecaster</text>
-
   <!-- Hi-Fi бейдж -->
-  <g transform="translate(900,40)">
+  <g transform="translate(20,45)">
     <rect class="hifi" x="0" y="0" width="160" height="70" rx="12" ry="12"></rect>
     <text x="80" y="48" font-size="40" text-anchor="middle" class="hifitext">Hi-Fi</text>
   </g>
+
+  <!-- Основная надпись -->
+  <text x="170" y="90" font-size="70" class="main">Digital City HUB</text>
+
+
 
 </svg>
