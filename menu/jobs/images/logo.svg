@@ -17,7 +17,7 @@
   </g>
 
   <!-- Основная надпись -->
-  <text x="170" y="90" font-size="70" class="main">Radio Telecaster</text>
+  <text x="170" y="90" font-size="70" class="main">Digital City</text>
 
   <!-- Hi-Fi бейдж -->
   <g transform="translate(900,40)">
