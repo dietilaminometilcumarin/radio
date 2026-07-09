@@ -20,7 +20,7 @@
   <text x="170" y="90" font-size="70" class="main">Digital City</text>
 
   <!-- Hi-Fi бейдж -->
-  <g transform="translate(900,40)">
+  <g transform="translate(600,40)">
     <rect class="hifi" x="0" y="0" width="160" height="70" rx="12" ry="12"></rect>
     <text x="80" y="48" font-size="40" text-anchor="middle" class="hifitext">Hi-Fi</text>
   </g>
