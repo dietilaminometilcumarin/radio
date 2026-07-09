@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="150" viewBox="0 0 1100 150">
+  <!-- Настраиваемый цвет -->
+  <defs>
+    <style>
+      .main { fill: #2a62ff; font-family: Arial, sans-serif; font-weight: 700; }
+      .waves { stroke: #2a62ff; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .hifi { fill: none; stroke: #2a62ff; stroke-width: 3; }
+      .hifitext { fill: #2a62ff; font-family: Arial, sans-serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Радиоволны -->
+  <g transform="translate(20,75)">
+    <path class="waves" d="M0 0 C40 -30, 80 -30, 120 0"></path>
+    <path class="waves" d="M0 0 C40 -50, 80 -50, 120 0" opacity="0.55"></path>
+    <path class="waves" d="M0 0 C40 -70, 80 -70, 120 0" opacity="0.3"></path>
+  </g>
+
+  <!-- Основная надпись -->
+  <text x="170" y="90" font-size="70" class="main">Radio Telecaster</text>
+
+  <!-- Hi-Fi бейдж -->
+  <g transform="translate(900,40)">
+    <rect class="hifi" x="0" y="0" width="160" height="70" rx="12" ry="12"></rect>
+    <text x="80" y="48" font-size="40" text-anchor="middle" class="hifitext">Hi-Fi</text>
+  </g>
+
+</svg>
