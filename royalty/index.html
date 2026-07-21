@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Proto — Copyright registration on the blockchain</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#6d28d9',
+                            violet: '#8b5cf6',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a78bfa 0%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .gradient-border:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+        }
+        /* Анимация пульсации для свечения логотипа */
+        @keyframes logo-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        .logo-web3-glow {
+            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));
+            animation: logo-glow 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 to-pink-500 flex items-center justify-center font-bold text-xl shadow-lg shadow-violet-500/30">
+                    ♫
+                </div>
+                <span class="font-bold text-xl tracking-tight">MusicProto</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
+                <a href="#about" class="hover:text-white transition">О проблеме</a>
+                <a href="#how-it-works" class="hover:text-white transition">Как это работает</a>
+                <a href="#benefits" class="hover:text-white transition">Преимущества</a>
+            </div>
+            <button class="bg-violet-600 hover:bg-violet-500 text-white font-semibold px-5 py-2.5 rounded-xl transition duration-200 shadow-lg shadow-violet-600/25">
+                Подключить кошелек
+            </button>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section class="pt-36 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto text-center relative overflow-hidden flex flex-col items-center">
+        
+    <!-- КОНТЕЙНЕР ДЛЯ ЛОГОТИПА (Гарантирует центрирование и блокирует сдвиги) -->
+    <div class="w-full flex justify-center items-center mb-8">
+        <img 
+            src="images/logo.png" 
+            alt="Логотип Music Protocol" 
+            class="w-[90%] sm:w-[600px] md:w-[750px] lg:w-[900px] h-auto object-contain block mx-auto logo-web3-glow"
+        >
+    </div>
+
+    <!-- ТЕКСТОВЫЕ БЛОКИ ПОД ЛОГОТИПОМ -->
+    <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium mb-8">
+            <span class="flex h-2 w-2 rounded-full bg-violet-400 animate-pulse"></span>
+            Ноу-хау в защите авторских прав Web3
+        </div>
+
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-8 text-center">
+            The music belongs to the authors. <br>
+            <span class="gradient-text">Royalty is instant and fair.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed text-center">
+            Платформа на базе двух смарт-контрактов: один мгновенно фиксирует ваши права и доли соавторов, второй — автоматически распределяет входящие платежи. Прямо на ваш Web3-кошелек. Без посредников и задержек.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <a href="#register" class="w-full sm:w-auto bg-gradient-to-r from-violet-600 to-pink-600 hover:opacity-90 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-violet-600/20 text-center">
+                Зарегистрировать трек
+            </a>
+            <a href="#how-it-works" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl border border-slate-700 transition text-center">
+                Узнать, как это работает
+            </a>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Problem Section -->
+    <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/80 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">В чем проблема традиционной индустрии?</h2>
+                <p class="text-slate-400">Существующая система распределения роялти устарела, забирает огромные комиссии и задерживает деньги авторов на месяцы.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="w-12 h-12 bg-rose-500/10 text-rose-400 rounded-xl flex items-center justify-center text-2xl mb-6">⏳</div>
+                    <h3 class="text-xl font-bold mb-3">Долгие задержки</h3>
+                    <p class="text-slate-400 leading-relaxed">Музыканты ждут выплат от лейблов и стримингов по 3–6 месяцев. Деньги обесцениваются и застревают в цепочках посредников.</p>
+                </div>
+                <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-6">👁️‍🗨️</div>
+                    <h3 class="text-xl font-bold mb-3">Непрозрачный сплит</h3>
+                    <p class="text-slate-400 leading-relaxed">Сложно проверить, правильно ли распределен доход между битмейкером, вокалистом, автором текста и продюсером.</p>
+                </div>
+                <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50">
+                    <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center text-2xl mb-6">🔀</div>
+                    <h3 class="text-xl font-bold mb-3">Сложность для плательщика</h3>
+                    <p class="text-slate-400 leading-relaxed">Организаторам и слушателям приходится делать отдельные переводы каждому участнику команды вручную.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (Architecture of 2 Contracts) -->
+    <section id="how-it-works" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Архитектура смарт-контрактов</h2>
+            <p class="text-slate-400 text-lg">Уникальное решение: разделение регистрационных данных и финансовой логики гарантирует надежность и удобство.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 relative">
+            <!-- Step 1 -->
+            <div class="bg-slate-800/30 p-8 rounded-3xl gradient-border relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">Контракт #1</span>
+                        <span class="text-4xl font-extrabold text-slate-700">01</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Регистрация прав</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Автор регистрирует трек, подкаст или альбом. Блокчейн фиксирует неизменяемый слепок права владения и доли каждого соавтора.
+                    </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/80 font-mono text-xs text-slate-300 border border-slate-700/50">
+                    <p class="text-violet-400">// Доли участников (Immutable)</p>
+                    <p>Beatmaker: 40%</p>
+                    <p>Vocalist: 40%</p>
+                    <p>Lyrical: 20%</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-slate-800/30 p-8 rounded-3xl gradient-border relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">Единый адрес</span>
+                        <span class="text-4xl font-extrabold text-slate-700">02</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Адрес для оплаты</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Каждое произведение получает свой уникальный адрес. Плательщикам достаточно отправить токены на **один** адрес произведения.
+                    </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/80 font-mono text-xs text-slate-300 border border-slate-700/50">
+                    <p class="text-pink-400">// Адрес смарт-контракта трека</p>
+                    <p class="truncate">0x71C...397A (Track_ID_882)</p>
+                    <p class="text-slate-500">Принимает токены 24/7</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-slate-800/30 p-8 rounded-3xl gradient-border relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Контракт #2</span>
+                        <span class="text-4xl font-extrabold text-slate-700">03</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Автоматический сплит</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Второй контракт моментально расщепляет входящий платеж и переводит токены прямо на кошельки соавторов.
+                    </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/80 font-mono text-xs text-slate-300 border border-slate-700/50">
+                    <p class="text-emerald-400">// Выполнение расщепления</p>
+                    <p>Transfer 400 TOKENS ➔ Wallet_1</p>
+                    <p>Transfer 400 TOKENS ➔ Wallet_2</p>
+                    <p>Transfer 200 TOKENS ➔ Wallet_3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Comparison Table -->
+    <section id="benefits" class="py-20 bg-slate-900/50 border-t border-slate-800 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">В чем выгода для каждой стороны?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- For Authors -->
+                <div class="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/60">
+                    <h3 class="text-2xl font-bold mb-6 text-violet-400 flex items-center gap-3">
+                        <span>🎙️</span> Для Авторов и Соавторов
+                    </h3>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>Защита авторства:</strong> Фиксация даты и состава авторов в блокчейне от споров.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>Справедливые выплаты:</strong> Автоматическое исполнение долей без человеческого фактора.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>Мгновенная ликвидность:</strong> Средства сразу поступают на ваш персональный кошелек.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- For Payers -->
+                <div class="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/60">
+                    <h3 class="text-2xl font-bold mb-6 text-pink-400 flex items-center gap-3">
+                        <span>💳</span> Для Плательщиков и Слушателей
+                    </h3>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>Один клик:</strong> Оплата на единый адрес или QR-код трека без лишней рутины.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>Прямая поддержка:</strong> Ваши токены идут непосредственно создателям, минуя комиссионных посредников.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 font-bold">✓</span>
+                            <span><strong>100% Прозрачность:</strong> Вы уверены, что поддержка равномерно распределилась между всей командой.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="register" class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <div class="bg-gradient-to-tr from-violet-900/60 to-pink-900/40 p-12 md:p-16 rounded-3xl border border-violet-500/30 relative overflow-hidden shadow-2xl">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Ready to protect your creativity and receive fair payments?
+            </h2>
+            <p class="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
+                Register your first track or podcast on the blockchain registry right now.
+            </p>
+            <button class="bg-white text-slate-900 hover:bg-slate-100 font-bold px-10 py-5 rounded-2xl transition duration-200 shadow-xl text-lg">
+                Connect a wallet
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-10 px-6 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© 2026 MusicProto. All rights reserved by smart contract.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-slate-300 transition">Smart Contract 1 (Registry)</a>
+                <a href="#" class="hover:text-slate-300 transition">Smart Contract 2 (Splitter)</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
